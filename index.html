@@ -1,86 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./img/corel logo.ico" type="image/png">
 </head>
+
 <body>
 
     <header>
-        <p>CALCULADORA DE INGRESOS</p>
-        <div class="botones">
-            <a href=""><div class="boton"> <p>ACTIVIDAD</p></div></a>
-            <a href=""><div class="boton"> <p>ESTADISTICAS</p></div></a>
-            <a href=""><div class="boton"> <p>CALCULADORA</p></div></a>
-            <a href=""><div class="boton"> <p>CUENTAS</p></div></a>
-        </div>
+        <H1>APLICACION COMPLETA DE CALCULOS Y ESTADÍSTICA MONETARIA</H1>
     </header>
     <main>
-<!-- 
-    <p>En esta página principal index se vería una explicación básica de como funcionan las demás pestañas, además de una versión simplificada de la página de estadísticas, con los gráficos mas simples y de mayor interés</p>
-    <p>La idea del proyecto va a ser una calculadora de gastos e ingresos, basicamente una herramienta para realizar un seguimiento monetario de todas las cuentas del usuario (efectivo, credito, debito)</p>
-    <p>En la pestaña actividad se vería un seguimiento de todos los ingresos y gastos digitados por el usuario</p>
-    <p>En la pestaña estadisticas se podrian ver unos gráficos con los diferentes tipos de ingresos y gastos durante los diferentes períodos de tiempo</p>
-    <p>Calculadora sería una calculadora científica (que idealmente sería un popup) para que el usuario no tenga que recurrir a la calculadora de windows o a otra página</p>    
-    <p>En la pestaña cuentas se podría llevar un seguimiento de las diferentes cuentas del usuario</p> -->
 
+        <h2>Seleccione a que programa desea acceder</h2>
+        <div>
+            <button type="button" id="selectorProgramas1"> Calculadora Ingresos</button>
+            <button type="button" id="selectorProgramas2"> Calculadora Stock</button>
+            <button type="button" id="selectorProgramas3"> Calculadora Numérica</button>
+        </div>
 
+        <div id="app">
 
-    <!-- <div class="divisorProyecto">
-    <h2>Actividad (croquis super básico)</h2>
-    <div class="Actividades">
-        <div class="columna">
-            <p>Monto</p>
-            <ul>
-                <li>$500</li>
-                <li>$255</li>
-                <li>$40</li>
-                <li>$50</li>
-                <li>$80</li>
-                <li>$90</li>
-            </ul>
-        </div>
-        <div class="columna">
-            <p>Ingreso o gasto</p>
-            <ul>
-                <li>Ingreso</li>
-                <li>Gasto</li>
-                <li>Ingreso</li>
-                <li>Gasto</li>
-                <li>Ingreso</li>
-                <li>Gasto</li>
-            </ul>
-        </div>
-        <div class="columna">
-            <p>Cuenta</p>
-            <ul>
-                <li>Efectivo</li>
-                <li>Debito</li>
-                <li>Credito</li>
-                <li>Efectivo</li>
-                <li>Debito</li>
-                <li>Credito</li>
-            </ul>
-        </div>
-        <div class="columna">
-            <p>Fecha y hora</p>
-            <ul>
-                <li>12/07/23 00:00</li>
-                <li>12/07/23 00:00</li>
-                <li>12/07/23 00:00</li>
-                <li>12/07/23 00:00</li>
-                <li>12/07/23 00:00</li>
-                <li>12/07/23 00:00</li>
-            </ul>
-        </div>
-    </div>
-    </div> -->
+            <!-- <div  style="border: 2px solid black; width: fit-content; margin: auto; padding: 10px; margin-top: 20px;">
+            </div>
+            <h3> CALCULADORA GENERAL</h3>
+            <p>nadie utiliza estos terminos pero bueno, son los que encontré como cientificos</p>
+            <h4>Operando</h4>
+            <input type="text" placeholder="numero inicial">
+            <div>
 
-</main>
+                <h4>Operación</h4>
+                <button class="botonCalcu">+</button>
+                <button class="botonCalcu">-</button>
+                <button class="botonCalcu">*</button>
+                <button class="botonCalcu">/</button>
+                <button class="botonCalcu">^</button>
+                <button class="botonCalcu">√</button>
+                <button class="botonCalcu">%</button>
+            </div>
+            <h4>Factor</h4>
+            <input type="text" placeholder="factor">
+            <button class="botonCalcu">Calcular</button>
+            <h4>Resultado</h4>
+            <input>
+            <button id="cerrar1" style="margin-top:5px;">CERRAR</button>
+        </div>
+
+        <div   style="border: 2px solid black; width: fit-content; margin: auto; padding: 10px; margin-top: 20px;">
+            <h3> CALCULADORA DE INGRESOS</h3>
+            <h4>Cantidad inicial de dinero:</h4>
+            <input type="text" placeholder="Ingrese su cantidad inicial">
+            <div style="border: 2px solid black;width: fit-content;margin: auto;padding: 10px; margin-top: 10px;">
+                <h3>Transacción 1</h3>
+                <input type="text" placeholder="Cantidad de dinero">
+                <div>
+                    <h3>Ingreso o gasto?</h3>
+                    <h4> Ingreso</h4>
+                    <input type="checkbox">
+                    <h4> Gasto</h4>
+                    <input type="checkbox">
+                </div>
+                <button type="button"> Completar Ingreso</button>
+                <button type="button"> Completar Ingreso y terminar con el programa</button>
+            </div>
+            <button id="cerrar2" style="margin-top:5px;">CERRAR</button>
+        </div>
+
+        <div style="border: 2px solid black; width: fit-content; margin: auto; padding: 10px; margin-top: 20px;">
+            <h3> CALCULADORA STOCK</h3>
+            <button type="button"> Agregar Producto</button>
+            <button type="button"> Finalizar Programa</button>
+            <h4>Producto numero 1</h4>
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Precio">
+            <input type="text" placeholder="Cantidad">
+            <button type="button"> Agregar Producto</button>
+            <button type="button"> Ver lista</button>
+            <p> =============================================================</p>
+            <p> Producto numero 1: Nombre: Perrito Precio: $500 Cantidad: 500</p>
+            <p> Producto numero 2: Nombre: Perrito Precio: $500 Cantidad: 500</p>
+            <p> Producto numero 3: Nombre: Perrito Precio: $500 Cantidad: 500</p>
+            <p> =============================================================</p>
+            <div></div>
+            <button id="cerrar3" style="margin-top:5px;">CERRAR</button>
+        </div> -->
+        </div>
+    </main>
+    <script src="./js/main.js"></script>
 </body>
-<script src="./js/main.js"></script>
+
 </html>

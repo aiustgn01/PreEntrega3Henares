@@ -1,7 +1,8 @@
 let selectorProgramas = parseInt(prompt("Ingrese a qué programa desea acceder (1: Calculadora de ingresos y gastos básica, 2: Generador de listas de productos, 3: Calculadora general, 4: Terminar programa)"))
 
 /* CALCULADORA GASTOS INGRESOS*/
-while (selectorProgramas!==4){
+while (selectorProgramas!==4)  {
+
 if (selectorProgramas==1){
   alert('INICIADA CALCULADORA DE INGRESOS Y GASTOS')
 const montoInicial = parseInt(prompt("Ingrese su monto inicial"));
@@ -13,10 +14,10 @@ if (isNaN(montoInicial)) {
   console.log("Usted no ingresó un monto inicial.");
 } else {
   console.log("Usted ingresó una cantidad de: " + montoInicial + " pesos.");
-  cantidadIngresos = parseInt(prompt("Ingrese la cantidad de ingresos o gastos que desea realizar:"));
+  cantidadIngresos = parseInt(prompt("Ingrese la cantidad de movimientos (ingresos o gastos) que desea realizar:"));
   if (!(isNaN(cantidadIngresos))) {
     console.log(
-      "Usted realizó una cantidad de: " + cantidadIngresos + " Ingresos/Gastos"
+      "Usted digitó una cantidad de: " + cantidadIngresos + " Ingresos/Gastos"
     );
   }
 }
@@ -42,8 +43,8 @@ if(arrayIngresos.length > 0){
 
 
 else  if (selectorProgramas==2){
-    alert('INICIADO GENERADOR DE LISTAS DE PRODUCTOS')
-arrayObjetosProgramaDos = []
+    alert('GENERADOR DE LISTAS DE PRODUCTOS')
+let arrayObjetosProgramaDos = []
 let siONo = prompt("Desea agregar un producto a la lista? y/n")
 let contadorProductos = 0
 let ingresolista
@@ -67,85 +68,40 @@ ingresolista = prompt("ingrese el numero del producto que desea ver, ingrese el 
 }
 alert("Programa finalizado.")
 
-} else if (selectorProgramas==3){alert('INICIADA CALCULADORA GENERAL')
-let operandoUno = 0
-let operandoDos = 0
-let resultado = 0
-let operacionProgramaTres = prompt('Ingrese una operación a realizar ("suma", "resta", "multiplicacion", "division", "potencia", "raiz", "porcentaje" o "x" para terminar con el programa)')
+for (let i = 0; i<contadorProductos; i++){
+  console.log(arrayObjetosProgramaDos[i])
+}
+
+}
+
+
+
+else if (selectorProgramas==3){alert('INICIADA CALCULADORA GENERAL')
+let operacionProgramaTres = recibirOperacion()
 while (operacionProgramaTres!='x'){
-if (operacionProgramaTres=='suma'){
-  operandoUno = parseInt(prompt('Ingrese el primer número a sumar'))
-  resultado = operandoUno
-  operandoDos = parseInt(prompt('Ingrese el siguiente número a sumar, o 0 para terminar con la suma'))
-  while (operandoDos != 0){
-  resultado = resultado+operandoDos
-  operandoDos = parseInt(prompt('Ingrese el siguiente número a sumar, o 0 para terminar con la suma'))
-  }
-alert('El resultado final de la suma es: '+ resultado)
+if (operacionProgramaTres=='suma'){ 
+  sumaHastaCorte()
+  operacionProgramaTres = recibirOperacion()
 }
 else if (operacionProgramaTres=='resta'){
-    operandoUno = parseInt(prompt('Ingrese el primer número'))
-    resultado = operandoUno
-    operandoDos = parseInt(prompt('Ingrese el siguiente número a restar, o 0 para terminar con la resta'))
-    while (operandoDos != 0){
-    resultado = resultado-operandoDos
-    operandoDos = parseInt(prompt('Ingrese el siguiente número a restar, o 0 para terminar con la resta'))
-    }
-  alert('El resultado final de la resta es: '+ resultado)
+ restaHastaCorte()
+ operacionProgramaTres = recibirOperacion()
 } 
 else if (operacionProgramaTres=='multiplicacion'){
-    operandoUno = parseInt(prompt('Ingrese el primer número'))
-    resultado = operandoUno
-    operandoDos = parseInt(prompt('Ingrese el siguiente número a multiplicar, o 0 para terminar con la multiplicación'))
-    while (operandoDos != 0){
-    resultado = resultado*operandoDos
-    operandoDos = parseInt(prompt('Ingrese el siguiente número a multiplicar, o 0 para terminar con la multiplicación'))
-    }
-  alert('El resultado final de la multiplicación es: '+ resultado)
-
+   multiplicacionHastaCorte()
+   operacionProgramaTres = recibirOperacion()
 } else if (operacionProgramaTres=='division'){
-    operandoUno = parseInt(prompt('Ingrese el primer número'))
-    resultado = operandoUno
-    operandoDos = parseInt(prompt('Ingrese un número por el cual dividir al primero, o 0 para terminar con la división'))
-    while (operandoDos != 0){
-    resultado = resultado/operandoDos
-    operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual dividir al resultado, o 0 para terminar con la división'))
-    }
-  alert('El resultado final de la división es: '+ resultado)
+    divisionHastaCorte()
+    operacionProgramaTres = recibirOperacion()
 } else if (operacionProgramaTres=='potencia'){
-    operandoUno = parseInt(prompt('Ingrese el primer número, cuidado, las potencias pueden llegar a numeros muy elevados muy rapido y ralentizar tu pc'))
-    resultado = operandoUno
-    operandoDos = parseInt(prompt('Ingrese el primer número por el cual potenciar al número ingresado, o 0 para terminar con la potencia'))
-    while (operandoDos != 0){
-    resultado = Math.pow(resultado, operandoDos)
-    operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual potenciar al resultado, o 0 para terminar con la potencia'))
-    }
-  alert('El resultado final de la potencia es: '+ resultado)
+    potenciaHastaCorte()
+    operacionProgramaTres = recibirOperacion()
 } else if (operacionProgramaTres=='raiz'){
-    operandoUno = parseInt(prompt('Ingrese el primer número'))
-    resultado = operandoUno
-    operandoDos = parseInt(prompt('Ingrese el primer número por el que se desea radicar al resultado, o 0 para terminar con la potencia'))
-    
-    while (operandoDos != 0){
-    operandoDos = 1/operandoDos
-    resultado = Math.pow(resultado, operandoDos)
-    operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual se desea radicar al resultado, o 0 para terminar con la potencia'))
-    
-    }
-  alert('El resultado final de la potencia es: '+ resultado)
+   raizHastaCorte()
+   operacionProgramaTres = recibirOperacion()
 } else if (operacionProgramaTres=='porcentaje'){
-    operandoUno = parseInt(prompt('Ingrese el primer número'))
-    resultado = operandoUno
-    operandoDos = parseInt(prompt('Ingrese el porcentaje del primer número que quiere obtener o 0 para terminar con el calculo de porcentaje (50 = 50%)'))
-    resultado = resultado*(operandoDos/100)
-    alert('El '+ operandoDos + '% de ' + operandoUno + ' es : ' + resultado)
-    while (operandoDos != 0){
-    operandoUno = resultado
-    operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual potenciar al resultado, o 0 para terminar con la potencia'))
-    if(operandoDos==0){break}
-    resultado = resultado*(operandoDos/100)
-    alert('El '+ operandoDos + '% de '+operandoUno+ " es: "+resultado)
-    }
+   porcentajeHastaCorte()
+   operacionProgramaTres = recibirOperacion()
     
   
 }
@@ -193,4 +149,101 @@ function funcionIngresos() {
 
     ingreso();
   }
+}
+
+function sumaHastaCorte(){
+
+  let operandoUno = parseInt(prompt('Ingrese el primer número a sumar'))
+  let resultado = operandoUno
+  let operandoDos = parseInt(prompt('Ingrese el siguiente número a sumar, o 0 para terminar con la suma'))
+  while (operandoDos != 0){
+  resultado = resultado+operandoDos
+  operandoDos = parseInt(prompt('Ingrese el siguiente número a sumar, o 0 para terminar con la suma'))
+  }
+alert('El resultado final de la suma es: '+ resultado)
+return resultado
+}
+
+function restaHastaCorte(){
+  let operandoUno = parseInt(prompt('Ingrese el primer número'))
+  let resultado = operandoUno
+  let operandoDos = parseInt(prompt('Ingrese el siguiente número a restar, o 0 para terminar con la resta'))
+  while (operandoDos != 0){
+  resultado = resultado-operandoDos
+  operandoDos = parseInt(prompt('Ingrese el siguiente número a restar, o 0 para terminar con la resta'))
+  }
+alert('El resultado final de la resta es: '+ resultado)
+return resultado
+}
+
+function multiplicacionHastaCorte(){
+let operandoUno = parseInt(prompt('Ingrese el primer número'))
+let resultado = operandoUno
+let operandoDos = parseInt(prompt('Ingrese el siguiente número a multiplicar, o 0 para terminar con la multiplicación'))
+while (operandoDos != 0){
+resultado = resultado*operandoDos
+operandoDos = parseInt(prompt('Ingrese el siguiente número a multiplicar, o 0 para terminar con la multiplicación'))
+}
+alert('El resultado final de la multiplicación es: '+ resultado)
+return resultado
+}
+
+function divisionHastaCorte(){
+  let operandoUno = parseInt(prompt('Ingrese el primer número'))
+    let resultado = operandoUno
+    let operandoDos = parseInt(prompt('Ingrese un número por el cual dividir al primero, o 0 para terminar con la división'))
+    while (operandoDos != 0){
+    resultado = resultado/operandoDos
+    operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual dividir al resultado, o 0 para terminar con la división'))
+    }
+  alert('El resultado final de la división es: '+ resultado)
+  return resultado
+}
+
+function potenciaHastaCorte(){
+  let operandoUno = parseInt(prompt('Ingrese el primer número, cuidado, las potencias pueden llegar a numeros muy elevados muy rapido y ralentizar tu pc'))
+    let resultado = operandoUno
+    let operandoDos = parseInt(prompt('Ingrese el primer número por el cual potenciar al número ingresado, o 0 para terminar con la potencia'))
+    while (operandoDos != 0){
+    resultado = Math.pow(resultado, operandoDos)
+    operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual potenciar al resultado, o 0 para terminar con la potencia'))
+    }
+  alert('El resultado final de la potencia es: '+ resultado)
+  return resultado
+}
+
+function raizHastaCorte(){
+  let operandoUno = parseInt(prompt('Ingrese el primer número'))
+  let resultado = operandoUno
+  let operandoDos = parseInt(prompt('Ingrese el primer número por el que se desea radicar al resultado, o 0 para terminar con la radicación'))
+  
+  while (operandoDos != 0){
+  operandoDos = 1/operandoDos
+  resultado = Math.pow(resultado, operandoDos)
+  operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual se desea radicar al resultado, o 0 para terminar con la radicación'))
+  
+  }
+alert('El resultado final de la radicación es: '+ resultado)
+return resultado
+}
+
+function porcentajeHastaCorte(){
+let operandoUno = parseInt(prompt('Ingrese el primer número'))
+  let resultado = operandoUno
+  let operandoDos = parseInt(prompt('Ingrese el porcentaje del primer número que quiere obtener o 0 para terminar con el calculo de porcentaje (50 = 50%)'))
+  resultado = resultado*(operandoDos/100)
+  alert('El '+ operandoDos + '% de ' + operandoUno + ' es : ' + resultado)
+  while (operandoDos != 0){
+  operandoUno = resultado
+  operandoDos = parseInt(prompt('Ingrese el siguiente número por el cual potenciar al resultado, o 0 para terminar con la potencia'))
+  if(operandoDos==0){break}
+  resultado = resultado*(operandoDos/100)
+  alert('El '+ operandoDos + '% de '+operandoUno+ " es: "+resultado)
+  }
+  return resultado
+}
+
+function recibirOperacion(){
+  let datoOperacion = prompt('Ingrese una operación a realizar ("suma", "resta", "multiplicacion", "division", "potencia", "raiz", "porcentaje" o "x" para terminar con el programa)')
+  return datoOperacion
 }

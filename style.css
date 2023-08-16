@@ -1,11 +1,5 @@
 *{background-color: rgb(152, 190, 232);margin:0;align-items: center;padding:0;text-align: center;}
-header{display: flex; background-color: rgb(121, 175, 237);height: 50px;}
-header p{display: flex; background-color: rgb(121, 175, 237); justify-content: space-evenly; width: 50%;}
-header div{display: flex; background-color: rgb(121, 175, 237);justify-content: space-evenly; width: 50%;}
-header div a{background-color: rgb(121, 175, 237);}
+header{display: flex; background-color: rgb(121, 175, 237);height: fit-content;}
+header h1{display: flex; background-color: rgb(121, 175, 237); margin: auto;}
 main p{margin: 5px;font-size: 16px;}
-
-.Actividades{display: flex; flex-direction: row;width: 80vw;justify-content: center;text-align: center;margin: auto; }
-.Actividades div{display: flex; flex-direction: column;justify-content: center;text-align: center;border: 2px solid black;width: 100%;}
-.Actividades div ul{list-style: none;width: 100%;}
-.Actividades div ul li{border-top: 2px solid black;width: 100%;}
+.botonCalcu{padding: 5px; font-size: large;padding-top: 0;padding-bottom: 0;}

@@ -1,5 +1,5 @@
 *{background-color: rgb(152, 190, 232);margin:0;align-items: center;padding:0;text-align: center;}
-header{display: flex; background-color: rgb(121, 175, 237);height: fit-content;}
+header{display: flex; background-color: rgb(121, 175, 237);height: fit-content;justify-content: space-evenly;}
 header h1{display: flex; background-color: rgb(121, 175, 237); margin: auto;}
 main p{margin: 5px;font-size: 16px;}
 .botonCalcu{padding: 5px; font-size: large;padding-top: 0;padding-bottom: 0;}

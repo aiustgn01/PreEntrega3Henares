@@ -1,7 +1,12 @@
-localStorage.setItem("nombre","Usuario")
+
+
 const saludo = document.getElementById("saludo")
+
 const botonCambiarNombre = document.getElementById("boton-nombre")
 let nombreGuardado = localStorage.getItem("nombre")
+console.log(nombreGuardado)
+if (nombreGuardado){
+} else {localStorage.setItem("nombre","Usuario")}
 saludo.textContent = `Bienvenido, ${nombreGuardado}`;
 
 botonCambiarNombre.addEventListener("click",function(){
